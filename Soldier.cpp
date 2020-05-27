@@ -15,9 +15,5 @@ void WarGame::FootSoldier::action(WarGame::Board& board) {
 void WarGame::FootCommander::action(WarGame::Board& board) {
     std::cout<<"footCommander action"<<std::endl;
 }
-WarGame::FootSoldier::~FootSoldier() {
-    //delete this;
-}
-WarGame::FootCommander::~FootCommander(){
-    //delete this;
-}
+WarGame::FootSoldier::~FootSoldier() {}
+WarGame::FootCommander::~FootCommander(){}

@@ -32,7 +32,6 @@ namespace WarGame {
 
         // In your game, you can put more soldier types, such as the sniper and the paramedic types.
     }
-
     uint DemoGame::play() {
         board.move(1, {0,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks from {0,1} to {1,1}.
         if (!board.has_soldiers(2)) return 1;
@@ -58,15 +57,11 @@ namespace WarGame {
             for (int iCol=0; iCol<numCols; ++iCol) {
                 //std::cout<<"col"<<iCol<<std::endl;
                 Soldier* soldier = board[{iRow,iCol}];
-
                 if (soldier){
                     // std::cout<<"dstr"<<iCol<<std::endl;
                     delete soldier;
                 }
-
-
             }
         }
     }
-
 }

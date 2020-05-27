@@ -10,14 +10,10 @@ namespace WarGame {
     class Board;
     class FootCommander : public Soldier {
     public:
+        int damage_per_activity = 20;
         FootCommander(int player) : Soldier(player, 150) {};
         ~FootCommander();
-        int damage_per_activity = 20;
-
         virtual void action(Board &board) override;
-
-
-
     };
 }
 

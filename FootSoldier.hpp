@@ -10,12 +10,12 @@
 
 namespace WarGame{
     class Board;
-class FootSoldier : public Soldier{
+    class FootSoldier : public Soldier{
 public:
     int damage_per_activity = 10 ;
-    FootSoldier(int player) : Soldier(player,100) {};
+    FootSoldier(int player) ;
     ~FootSoldier();
-    virtual void action  (Board& b) override ;
+    virtual void action  (std::vector<std::vector<Soldier*>>& b,std::pair<int,int> source) override ;
 };
 }
 #endif //WARGAME_A_FOOTSOLDIER_HPP

@@ -15,8 +15,8 @@
 #include "Soldier.hpp"
 #include "FootSoldier.hpp"
 #include "FootCommander.hpp"
-
-
+#include "Sniper.hpp"
+#include "SniperCommander.hpp"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ class Board {
     std::vector<std::vector<Soldier*>> board;
   public:
     enum MoveDIR { Up, Down, Right, Left };
-    
+
     Board(uint numRows, uint numCols) : 
       board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
 
@@ -36,7 +36,11 @@ class Board {
     
     // operator for reading which soldiers are on the game-board.
     Soldier* operator[](std::pair<int,int> location) const;
-    
+
+    std::vector<std::vector<Soldier*>> getBoard(){
+        return board;
+    }
+
     // The function "move" tries to move the soldier of player "player"
     //     from the "source" location to the "target" location,
     //     and activates the special ability of the soldier.
@@ -50,8 +54,8 @@ class Board {
     //      must be handled by polymorphism.
     void move(uint player_number, std::pair<int,int> source, MoveDIR direction);
     bool isLegalMove(std::pair<int,int> source , MoveDIR direction);
-    std::pair<int,int> findNearest(uint player_number ,pair<int,int> source );
-    std::pair<int,int> findHighest(uint player_number ,pair<int,int> source );
+    //std::pair<int,int> findNearest(uint player_number ,pair<int,int> source );
+    //std::pair<int,int> findHighest(uint player_number ,pair<int,int> source );
     // returns true iff the board contains one or more soldiers of the given player.
     bool has_soldiers(uint player_number) const;
 };

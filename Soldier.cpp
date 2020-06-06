@@ -115,7 +115,7 @@ void WarGame::Paramedic::action(std::vector <std::vector<Soldier *>> &board, std
         board[source.first-1][source.second-1]->initial_health_points = board[source.first-1][source.second-1]->max_hp;
     }
 }
-void WarGame::ParamedicCommander::action(std::vector < WarGame::Soldier * > < vector > &board, std::pair < int,int > source) {
+void WarGame::ParamedicCommander::action(std::vector <std::vector<Soldier *>> &board, std::pair < int,int > source) {
     if( isLegalMove(board ,{source.first+1,source.second+1})&&board[source.first+1][source.second+1]!= nullptr && board[source.first+1][source.second+1]->player==this->player){
         board[source.first+1][source.second+1]->initial_health_points = board[source.first+1][source.second+1]->max_hp;
     }

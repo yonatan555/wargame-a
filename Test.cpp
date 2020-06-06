@@ -79,9 +79,10 @@
         }
 
         TEST_CASE ("moves outside AND illegal moves") {
+            WarGame::Board board(8,8);
             CHECK(!board.has_soldiers(1));
-            board[{5, 1}] = new FootSoldier(1);
-           // CHECK_THROWS(board[{5,2}] = new FootSoldier(3));
+            board[{5,1}] = new FootSoldier(1);
+            board[{5,2}] = new FootSoldier(2);
             CHECK_THROWS(board.move(1, {6, 1}, WarGame::Board::MoveDIR::Up)); //no soldier their
             CHECK_THROWS(board.move(1, {6, 1}, WarGame::Board::MoveDIR::Up)); //no soldier their
             CHECK_THROWS(board.move(2, {5, 1}, WarGame::Board::MoveDIR::Up)); //no soldier their
@@ -94,7 +95,7 @@
             CHECK(!board.has_soldiers(2));
             CHECK(!board.has_soldiers(2));
             board[{5, 4}] = new FootSoldier(2);
-           // CHECK_THROWS(board.move(2, {3, 1}, WarGame::Board::MoveDIR::Up)); //no soldier their
+            CHECK_THROWS(board.move(2, {3, 1}, WarGame::Board::MoveDIR::Up)); //no soldier their
             board[{5, 1}] = new FootSoldier(1);
             board[{7, 1}] = new FootSoldier(1);
             //CHECK_THROWS(board.move(1, {7, 1}, WarGame::Board::MoveDIR::Up)); //outside
@@ -112,15 +113,15 @@
             CHECK(!board.has_soldiers(2));
             CHECK(!board.has_soldiers(2));
             for (int i = 0; i < 7; i++) {
-                board[{i, 0}] = new FootCommander(1);
-                board[{i, 7}] = new FootCommander(2);
-                board[{i+1, 0}] = new FootSoldier(1);
-                board[{i+1, 6}] = new FootSoldier(2);
-                CHECK(board[{i, 0}]);
-              CHECK(board[{i, 0}]);
-                CHECK(board[{i, 7}]);
-                CHECK(board[{i+1, 6}]);
-                CHECK(board[{i+1, 0}]);
+            board[{i, 0}] = new FootCommander(1);
+            board[{i, 7}] = new FootCommander(2);
+            board[{i+1, 0}] = new FootSoldier(1);
+            board[{i+1, 6}] = new FootSoldier(2);
+            CHECK(board[{i, 0}]);
+            CHECK(board[{i, 0}]);
+            CHECK(board[{i, 7}]);
+            CHECK(board[{i+1, 6}]);
+            CHECK(board[{i+1, 0}]);
             }
         }
     }

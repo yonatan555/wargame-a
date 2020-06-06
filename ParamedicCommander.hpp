@@ -11,7 +11,7 @@ namespace WarGame {
     public:
         ParamedicCommander(int player) : Soldier(player, 200,200) {};
         ~ParamedicCommander();
-       // virtual void action(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source) override;
+        virtual void action(std::vector<std::vector<Soldier*>> &board,std::pair<int,int> source) override;
     };
 }
 #endif //WARGAME_A_PARAMEDICCOMMANDER_HPP

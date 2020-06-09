@@ -6,6 +6,7 @@
 #include "Board.hpp"
 
 void WarGame::Board::move(uint player_number, std::pair<int,int> source, MoveDIR direction){
+    std::cout<<" moshe2"<<std::endl;
 if(player_number>2 ||player_number<1 ){
    cout<<"need to write exeption no player like this"<<endl;
     throw std::invalid_argument("there is no player like this");
@@ -20,13 +21,14 @@ else if(board[source.first][source.second] == nullptr ||board[source.first][sour
 }
 else if(!isLegalMove(source , direction)){
     cout<<"need to write exeption not legal move"<<endl;
-     throw std::invalid_argument("iliegal move");
+     throw std::invalid_argument("illegal move");
 }
 else{
     cout<<"played"<<endl;
     Soldier* temp = board[source.first][source.second];
     //int x = source.first,y=source.second;
     pair<int,int> dest  ;
+    std::cout<<" moshe3"<<std::endl;
     if(direction==MoveDIR::Left)
     {
         //y--;
@@ -51,12 +53,16 @@ else{
    else if(direction==MoveDIR::Up)
    {
     //   x++;
-       dest.first = source.first-1 ;
+       std::cout<<source.first<<std::endl;
+       dest.first = source.first+1 ;
        dest.second = source.second ;
        board[source.first+1][source.second]=temp;
    }
+    std::cout<<" moshe5"<<std::endl;
     board[source.first][source.second]= nullptr;
+    std::cout<<" moshe6"<<std::endl;
     temp->action(this->board,dest);
+    std::cout<<" moshe7"<<std::endl;
 }
 }
 

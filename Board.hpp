@@ -24,8 +24,8 @@ namespace WarGame {
 
 class Board {
   private:
-    std::vector<std::vector<Soldier*>> board;
   public:
+    std::vector<std::vector<Soldier*>> board;
     enum MoveDIR { Up, Down, Right, Left };
 
     Board(uint numRows, uint numCols) : 
